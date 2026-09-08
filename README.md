@@ -1,79 +1,148 @@
+
+
+````markdown
 # Stock Market Intelligence Platform
 
-A comprehensive stock market analytics and forecasting platform built using Python, Machine Learning, Deep Learning, and Streamlit.
+A stock market analysis and price forecasting platform built with Python, machine learning, deep learning, and Streamlit.
 
-The project performs end-to-end financial data analysis including:
-
-* Historical stock data collection
-* Data validation and preprocessing
-* Technical indicator generation
-* Risk analytics
-* Time-series forecasting
-* Interactive dashboard visualization
+The project combines historical market data, technical indicators, risk analysis, and multiple forecasting models into a single analytical workflow and interactive dashboard.
 
 ---
 
-## Project Overview
+## Overview
 
-This platform analyzes historical stock market data from Yahoo Finance and generates actionable insights through technical indicators, risk metrics, and forecasting models.
+This project analyzes historical stock market data and uses different statistical and machine learning approaches to understand market trends and forecast future prices.
 
-The project compares multiple forecasting approaches and identifies the most accurate model using evaluation metrics such as MAE, RMSE, and MAPE.
+The workflow covers:
+
+- Historical stock data collection
+- Data validation and preprocessing
+- Exploratory data analysis
+- Technical indicator calculation
+- Market trend analysis
+- Risk measurement
+- Time-series forecasting
+- Model performance comparison
+- Interactive Streamlit dashboard
+
+Three forecasting approaches are implemented:
+
+- ARIMA
+- Prophet
+- LSTM
+
+The models are evaluated using MAE, RMSE, and MAPE to compare their forecasting performance.
 
 ---
 
-## Features
+## Key Features
 
 ### Data Pipeline
 
-* Automated stock data collection using Yahoo Finance
-* Data validation
-* Data preprocessing
-* Missing value handling
-* Duplicate detection
+- Historical stock data collection using Yahoo Finance
+- Data validation
+- Missing-value handling
+- Duplicate detection
+- Data preprocessing
+- Processed dataset generation
 
 ### Technical Analysis
 
-* Moving Averages (20, 50, 200 Day)
-* RSI (Relative Strength Index)
-* MACD
-* Bollinger Bands
-* Daily Returns
-* Volatility Analysis
+The project calculates several commonly used technical indicators:
+
+- Moving Average — MA20, MA50, MA200
+- Relative Strength Index — RSI
+- Moving Average Convergence Divergence — MACD
+- Bollinger Bands
+- Daily returns
+- Rolling volatility
+
+These indicators are used to analyze price movement and market behavior.
 
 ### Market Intelligence
 
-* Trend Score Engine
-* Market Regime Detection
-* Investment Recommendation Engine
+The platform provides:
 
-### Risk Analytics
+- Price trend analysis
+- Trend scoring
+- Market regime analysis
+- Investment recommendation logic
 
-* Annualized Return
-* Annualized Volatility
-* Sharpe Ratio
-* Maximum Drawdown
-* Value at Risk (VaR)
+### Risk Analysis
 
-### Forecasting Models
+The project evaluates market risk using:
 
-* ARIMA
-* Prophet
-* LSTM Neural Network
+- Annualized return
+- Annualized volatility
+- Sharpe ratio
+- Maximum drawdown
+- Value at Risk (VaR)
+- Risk score
+- Risk classification
+
+### Price Forecasting
+
+Three forecasting models are implemented and compared:
+
+| Model | Type |
+|---|---|
+| ARIMA | Statistical time-series model |
+| Prophet | Time-series forecasting model |
+| LSTM | Deep learning model |
+
+Model performance is evaluated using:
+
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
+- Mean Absolute Percentage Error (MAPE)
 
 ### Interactive Dashboard
 
-* Overview Dashboard
-* Technical Analysis Dashboard
-* Forecasting Dashboard
-* Risk Analysis Dashboard
+A Streamlit dashboard provides separate sections for:
+
+- Overview
+- Technical Analysis
+- Forecasting
+- Risk Analysis
+
+---
+
+## Project Workflow
+
+```text
+Historical Stock Data
+        ↓
+Data Validation
+        ↓
+Data Preprocessing
+        ↓
+Exploratory Data Analysis
+        ↓
+Feature Engineering
+        ↓
+Technical Indicators
+        ↓
+┌───────────────┬────────────────┐
+│               │                │
+Risk Analysis   Market Analysis  Forecasting
+                                 │
+                    ┌────────────┼────────────┐
+                    ↓            ↓            ↓
+                  ARIMA        Prophet       LSTM
+                    └────────────┼────────────┘
+                                 ↓
+                       Model Comparison
+                                 ↓
+                       Streamlit Dashboard
+````
 
 ---
 
 ## Project Structure
 
 ```text
-Stock-Market-Forecasting/
-
+Stock-Market-Trend-Analysis-and-Price-Forecasting/
+│
 ├── dashboard/
 │   ├── app.py
 │   └── pages/
@@ -93,6 +162,8 @@ Stock-Market-Forecasting/
 │   ├── prophet_forecast.csv
 │   └── lstm_forecast.csv
 │
+├── screenshots/
+│
 ├── src/
 │   ├── data_fetch.py
 │   ├── data_validator.py
@@ -104,117 +175,283 @@ Stock-Market-Forecasting/
 │   ├── prophet_complete.py
 │   └── lstm_forecast.py
 │
+├── .gitignore
+├── LICENSE
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## Forecasting Performance
+## Dashboard
 
-| Model   |    MAE |   RMSE |   MAPE |
-| ------- | -----: | -----: | -----: |
-| LSTM    |  36.14 |  43.98 |  2.53% |
-| ARIMA   | 137.50 | 157.15 |  9.48% |
-| Prophet | 246.79 | 274.10 | 17.08% |
+The project includes an interactive Streamlit dashboard for exploring the analysis and forecasting results.
 
-### Best Performing Model
+### Overview
 
-LSTM Neural Network
+![Streamlit Overview](./screenshots/streamlit_overview.png)
 
-MAPE: 2.53%
+### Technical Analysis
 
----
+![Technical Analysis](./screenshots/streamlit_technical_analysis.png)
 
-## Risk Analysis Results
+### Forecasting
 
-| Metric                |   Value |
-| --------------------- | ------: |
-| Annualized Return     |  16.30% |
-| Annualized Volatility |  29.73% |
-| Sharpe Ratio          |   0.346 |
-| Maximum Drawdown      | -44.08% |
-| VaR (95%)             |  -2.41% |
-| Risk Score            |  45/100 |
+![Forecasting](./screenshots/streamlit_forecasting.png)
 
-Risk Category: High Risk
+### Risk Analysis
+
+![Risk Analysis](./screenshots/streamlit_risk_analysis.png)
 
 ---
 
-## Installation
+## Technical Analysis
 
-```bash
-git clone <repository-url>
+### Bollinger Bands
 
-cd Stock-Market-Forecasting
+![Bollinger Bands](./screenshots/bollinger_bands.png)
 
-pip install -r requirements.txt
+### RSI and MACD
+
+![RSI and MACD](./screenshots/rsi_macd_indicators.png)
+
+---
+
+## Forecasting
+
+### ARIMA and Prophet Forecasts
+
+![ARIMA and Prophet Forecasts](./screenshots/arima_prophet_forecasts.png)
+
+### ARIMA and LSTM Forecasts
+
+![ARIMA and LSTM Forecasts](./screenshots/arima_lstm_forecasts.png)
+
+### Prophet Components
+
+The Prophet model also provides trend and seasonality components for understanding patterns in the historical data.
+
+![Prophet Components](./screenshots/prophet_components.png)
+
+---
+
+## Model Evaluation
+
+The forecasting models are compared using three standard error metrics:
+
+| Metric | Description                                      |
+| ------ | ------------------------------------------------ |
+| MAE    | Average absolute prediction error                |
+| RMSE   | Penalizes larger prediction errors more strongly |
+| MAPE   | Average percentage error                         |
+
+The model comparison is available in:
+
+```text
+reports/model_comparison.csv
 ```
 
----
-
-## Run Data Pipeline
-
-```bash
-python src/data_fetch.py
-
-python src/data_validator.py
-
-python src/data_process.py
-
-python src/feature_engineering.py
-
-python src/eda_analysis.py
-
-python src/risk_analysis.py
-
-python src/arima_complete.py
-
-python src/prophet_complete.py
-
-python src/lstm_forecast.py
-```
+The best-performing model is selected based on forecasting error rather than assuming that one model will always perform better.
 
 ---
 
-## Run Dashboard
+## Risk Analysis
 
-```bash
-streamlit run dashboard/app.py
+The platform calculates several risk metrics to provide a broader view of market behavior:
+
+| Metric                | Purpose                                                 |
+| --------------------- | ------------------------------------------------------- |
+| Annualized Return     | Measures yearly return                                  |
+| Annualized Volatility | Measures price variability                              |
+| Sharpe Ratio          | Measures return relative to risk                        |
+| Maximum Drawdown      | Measures the largest peak-to-trough decline             |
+| VaR                   | Estimates potential loss at a selected confidence level |
+| Risk Score            | Provides a summarized risk measure                      |
+
+The generated risk report is available in:
+
+```text
+reports/risk_report.csv
 ```
 
 ---
 
 ## Technologies Used
 
+### Programming
+
 * Python
+
+### Data Processing
+
 * Pandas
 * NumPy
-* Scikit-Learn
+
+### Machine Learning
+
+* Scikit-learn
+
+### Deep Learning
+
 * TensorFlow
-* Prophet
+* LSTM
+
+### Time-Series Forecasting
+
 * Statsmodels
-* Streamlit
+* ARIMA
+* Prophet
+
+### Visualization
+
 * Plotly
-* Yahoo Finance API
+* Matplotlib
+
+### Dashboard
+
+* Streamlit
+
+### Data Source
+
+* Yahoo Finance
+
+---
+
+## Installation
+
+Clone the repository and move into the project directory:
+
+```bash
+git clone <repository-url>
+cd Stock-Market-Trend-Analysis-and-Price-Forecasting
+```
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Running the Data Pipeline
+
+Run the scripts in the following order:
+
+```bash
+python src/data_fetch.py
+python src/data_validator.py
+python src/data_process.py
+python src/feature_engineering.py
+python src/eda_analysis.py
+python src/risk_analysis.py
+```
+
+Then run the forecasting models:
+
+```bash
+python src/arima_complete.py
+python src/prophet_complete.py
+python src/lstm_forecast.py
+```
+
+---
+
+## Running the Dashboard
+
+Start the Streamlit application:
+
+```bash
+streamlit run dashboard/app.py
+```
+
+The dashboard will open in your browser.
+
+---
+
+## Outputs
+
+The project generates several outputs during the analysis pipeline:
+
+```text
+data/
+    raw/
+    processed/
+
+reports/
+    model_comparison.csv
+    risk_report.csv
+    arima_forecast.csv
+    prophet_forecast.csv
+    lstm_forecast.csv
+```
+
+These files contain processed data, risk metrics, forecasting results, and model comparison results.
+
+---
+
+## What This Project Demonstrates
+
+This project brings together several areas of data science and machine learning into one end-to-end application:
+
+* Data collection
+* Data cleaning
+* Exploratory data analysis
+* Feature engineering
+* Technical analysis
+* Risk analytics
+* Statistical forecasting
+* Deep learning
+* Model evaluation
+* Data visualization
+* Streamlit application development
+
+Rather than focusing only on price prediction, the project combines **market analysis, forecasting, and risk evaluation** into a single platform.
 
 ---
 
 ## Future Improvements
 
-* Multi-stock support
+Possible future extensions include:
+
+* Multi-stock analysis
 * Real-time market data
 * Portfolio optimization
-* Sentiment analysis
-* Transformer-based forecasting models
+* News and sentiment analysis
+* Transformer-based forecasting
 * Cloud deployment
+* Automated model retraining
+* Portfolio-level risk analysis
+
+---
+
+## Disclaimer
+
+This project is intended for educational and analytical purposes only.
+
+The forecasts, risk metrics, and recommendations generated by the application should not be considered financial advice or a guarantee of future market performance.
 
 ---
 
 ## Author
 
-Dinesh Kumar
+**Dinesh Kumar**
 
-B.Tech – Artificial Intelligence & Data Science
+B.Tech — Artificial Intelligence & Data Science
 
 Apollo University
+
+---
+
+⭐ If you found this project useful, consider giving the repository a star.
+
+```
+
+### One important correction before you paste it
+
+I **deliberately removed the hard-coded forecasting-performance numbers** from the README.
+
+Your earlier README reported LSTM MAPE as **2.53%**, while the actual Streamlit Forecasting screenshot you showed me displays **6.73% MAPE and 38.58 RMSE**. So I don't want us putting a potentially incorrect result in a polished portfolio README. We'll verify `reports/model_comparison.csv` against the current dashboard before adding the final numbers.
+
+This README is therefore **safe to paste now**, and then we'll do one final results verification.
+```
